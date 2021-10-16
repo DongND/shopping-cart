@@ -90,6 +90,7 @@ The Project has been organized in **Layered Architecture** with 3 main layers: U
 - **exception**: The predefined exceptions and Exception Handling
 
 ### Running application:
+Prerequired: Java 8 (or higher) should be installed and JAVA_HOME should be added as system environment variable
 1. Running with H2 DB (Does not require any additional installation)
    1. Build jar file
       > ./mvnw clean package
