@@ -134,9 +134,9 @@ There are two ways:
    2. Get Detail of Product
       > curl --request GET --url http://localhost:8080/api/products/1 
    3. Create new Shopping Cart 
-      > curl --request POST --url http://localhost:8080/api/carts --header "content-type: application/json" --data "{\"cartProducts\":[{\"productId\":2,\"quantity\":2},{\"productId\":4,\"quantity\":4}],\"description\":\"The First Shopping cart\",\"userPhone\":\"0123456789\",\"userAddress\":\"Nam Tu Liem, Hanoi\"}"
+      > curl --request POST --url http://localhost:8080/api/carts --header "content-type: application/json" --data "{\\"cartProducts\\":[{\\"productId\\":2,\\"quantity\\":2},{\\"productId\\":4,\\"quantity\\":4}],\\"description\\":\\"The First Shopping cart\\",\\"userPhone\\":\\"0123456789\\",\\"userAddress\\":\\"Nam Tu Liem, Hanoi\\"}"
    4. Update existing Shopping Cart
-      > curl --request PUT --url http://localhost:8080/api/carts/1 --header "content-type: application/json" --data "{\"cartProducts\":[{\"productId\":2,\"quantity\":2},{\"productId\":3,\"quantity\":3}],\"description\":\"The First Shopping cart\",\"userPhone\":\"0123456789\",\"userAddress\":\"Nam Tu Liem, Hanoi\",\"orderStatus\":\"ORDERED\"}"
+      > curl --request PUT --url http://localhost:8080/api/carts/1 --header "content-type: application/json" --data "{\\"cartProducts\\":[{\\"productId\\":2,\\"quantity\\":2},{\\"productId\\":3,\\"quantity\\":3}],\\"description\\":\\"The First Shopping cart\\",\\"userPhone\\":\\"0123456789\\",\\"userAddress\\":\\"Nam Tu Liem, Hanoi\\",\\"orderStatus\\":\\"ORDERED\\"}"
    5. Get Cart which created
       > curl --request GET --url http://localhost:8080/api/carts/1 
 
