@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+
+    <changeSet id="20211013-0001-sampleCategoryData" author="dongnd" context="sample">
+        <loadData
+                file="db/changelog/sample-data/category.csv"
+                separator=";"
+                tableName="category">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="description" type="string"/>
+            <column name="created_at" type="datetime"/>
+            <column name="last_modified_at" type="datetime"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20211013-0002-sampleProductData" author="dongnd" context="sample">
+        <loadData
+                file="db/changelog/sample-data/product.csv"
+                separator=";"
+                tableName="product">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="description" type="string"/>
+            <column name="price" type="numeric"/>
+            <column name="brand" type="string"/>
+            <column name="colour" type="string"/>
+            <column name="picture_url" type="string"/>
+            <column name="stock_quantity" type="numeric"/>
+            <column name="category_id" type="numeric"/>
+            <column name="created_at" type="datetime"/>
+            <column name="last_modified_at" type="datetime"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

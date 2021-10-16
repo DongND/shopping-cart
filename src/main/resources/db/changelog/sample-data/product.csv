@@ -1,0 +1,9 @@
+id;name;description;price;brand;colour;picture_url;stock_quantity;category_id;created_at;last_modified_at
+1;TV Set;;300;Fist Brand;Black;https://picsum.photos/200;100;1;2021-10-13 18:01:03;2021-10-13 18:01:03
+2;Game Console;;200;Fist Brand;Blue;https://picsum.photos/200;200;1;2021-10-13 18:01:03;2021-10-13 18:01:03
+3;Sofa;;100;Fist Brand;White;https://picsum.photos/200;75;2;2021-10-13 18:01:03;2021-10-13 18:01:03
+4;Icecream;;5;Second Brand;Yellow;https://picsum.photos/200;1000;3;2021-10-13 18:01:03;2021-10-13 18:01:03
+5;Beer;;3;Second Brand;Yellow;https://picsum.photos/200;2000;3;2021-10-13 18:01:03;2021-10-13 18:01:03
+6;Phone;;200;Second Brand;Silver;https://picsum.photos/200;45;4;2021-10-13 18:01:03;2021-10-13 18:01:03
+7;Watch;;20;Second Brand;Black;https://picsum.photos/200;90;4;2021-10-13 18:01:03;2021-10-13 18:01:03
+

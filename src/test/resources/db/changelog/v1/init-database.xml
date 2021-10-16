@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="dongnd" id="20211012-0001-createCategoryTable">
+        <createTable tableName="category">
+            <column name="id" type="bigint" autoIncrement="true" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="last_modified_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dongnd" id="20211012-0002-createProductTable">
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="price" type="double"/>
+            <column name="brand" type="varchar(255)"/>
+            <column name="colour" type="varchar(255)"/>
+            <column name="picture_url" type="varchar(255)"/>
+            <column name="stock_quantity" type="bigint"/>
+            <column name="category_id" type="bigint"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="last_modified_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dongnd" id="20211012-0003-createCartTable">
+        <createTable tableName="cart">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+
+            <column name="order_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_phone" type="varchar(15)"/>
+            <column name="user_address" type="varchar(255)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="last_modified_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dongnd" id="20211012-0004-createOrderProductTable">
+        <createTable tableName="cart_product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="cart_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="int"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="last_modified_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0005-productCategoryFk">
+        <addForeignKeyConstraint baseTableName="product"
+                                 baseColumnNames="category_id"
+                                 constraintName="product_category_fk"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0006-cpProductFk">
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="cart_product"
+                                 constraintName="cartproduct_product_fk"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet  author="dongnd"  id="20211012-0007-cpCartFk">
+        <addForeignKeyConstraint baseColumnNames="cart_id"
+                                 baseTableName="cart_product"
+                                 constraintName="cartproduct_cart_fk"
+                                 referencedTableName="cart"
+                                 referencedColumnNames="id"
+                                 />
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0008-createIndexForNameOfProductTable">
+        <createIndex indexName="idx_product_name"
+                     tableName="product">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0009-createIndexForBrandOfProductTable">
+        <createIndex indexName="idx_product_brand"
+                     tableName="product">
+            <column name="brand"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0010-createIndexForColourOfProductTable">
+        <createIndex indexName="idx_product_colour"
+                     tableName="product">
+            <column name="colour"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet  author="dongnd"  id="20211012-0011-createIndexForPriceOfProductTable">
+        <createIndex indexName="idx_product_price"
+                     tableName="product">
+            <column name="price"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
